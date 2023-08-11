@@ -1,0 +1,20 @@
+
+{% extends 'Item/base.html' %}
+
+{% block title %} Все объекты {% endblock %}
+
+{% block content %}
+  <h2>Список всех объектов</h2>
+    <ul>
+      {% for objec in objecs %}
+        <li>
+          группа - {{objec.grup}},
+          имя - {{objec.name}},
+          картинка - {{objec.picture}},
+          звук - {{objec.sound}},
+          правильность - {{objec.ident}}
+        </li>
+      {% endfor %}
+    </ul>
+{% endblock %}
+

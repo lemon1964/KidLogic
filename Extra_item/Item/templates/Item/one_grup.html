@@ -1,0 +1,16 @@
+{% extends 'Item/base.html' %}
+
+{% block title %} Информация о группе - {{objec.name}} {% endblock %}
+
+{% block content %}
+  <h2>Группа </h2>
+    <h3> {{grup.name}} </h3>
+  <hr>
+    <h3> Информация об объектах </h3>
+    <ul>
+      {% for obj in grup.objecs.all %}
+        <li> {{obj}} </li>
+      {% endfor %}
+    </ul>
+
+{% endblock %}

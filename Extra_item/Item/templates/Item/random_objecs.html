@@ -1,0 +1,12 @@
+{% extends 'Item/base.html' %}
+
+{% block title %} Random Objecs {% endblock %}
+
+{% block content %}
+    <h1>Random Objecs from {{ grup.name }}</h1>
+    <ul>
+        {% for objec in random_objecs %}
+            <li>{{ objec.name }} {{ objec.ident }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
