@@ -213,7 +213,7 @@ git commit -m '1 commit'
 Гитхаб
 Создаем репозитарий KidLogic
 Терминал
-git remote add origin git@github.com:lemon1964/KidLogic
+git remote add origin git@github.com:lemon1964/KidLogic.git
 git branch -M main
 git push -u origin main
 
@@ -221,7 +221,7 @@ https://github.com/lemon1964/KidLogic
 
 Обновление в гитхаб
 git add .
-git commit -m 'n commit'
+git commit -m '2 commit'
 git push -u origin main
 ------------------------
 

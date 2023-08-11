@@ -23,5 +23,3 @@ class Objec(models.Model):
     def __str__(self):
         return f'{self.name} - {self.ident}'
 
-    def get_url(self):
-        return reverse('objec-detail', args=[self.id])
