@@ -1,0 +1,145 @@
+В папке KidLogic создаем проект Extra_item_DRF
+В терминале 
+cd /Users/lemon/Desktop/Проекты/KidLogic
+django-admin startproject Extra_item_DRF
+cd Extra_item_DRF
+
+Открываем в пайчарме проект Extra_item_DRF
+Успеваем в открывшемся окошке поменять Пайтон 3.9 на 3.8
+Ждем переустановки внизу справа
+
+В терминале пайчарма переходим в папку KidLogic
+cd ..
+Активируем Вирт окружение
+source venv/bin/activate
+Переходим в папку проекта Extra_item_DRF
+cd Extra_item_DRF
+python -m pip install Django
+Создаем приложение
+python manage.py startapp item_DRF
+
+Проверяем версию
+python --version		Python 3.8.17	OK
+-----------------------
+В файле settings
+
+INSTALLED_APPS = [
+    'item_DRF',
+]
+
+#<- добавь русскую локализацию
+LANGUAGE_CODE = 'ru-ru'
+---------------------
+Установка Django Rest Framework
+cd Extra_item_DRF
+pip install djangorestframework
+pip install djangorestframework-simplejwt
+pip install django-cors-headers
+-----------------
+идем в файл settings.py и добавляем настройки для всего что мы установили
+
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'rest_framework', #<- добавьте это
+    'core'
+]
+
+MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware', #<- добавьте это именно сюда
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+]
+
+#настройки rest framework
+
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": ["rest_framework_simplejwt.authentication.JWTAuthentication"],
+    "DEFAULT_RENDERER_CLASSES": ["rest_framework.renderers.JSONRenderer"],
+    "TEST_REQUEST_DEFAULT_FORMAT": "json",
+    "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.DjangoModelPermissions",),
+}
+---------------
+Прописываем ДебагКонфигуратор	runserver
+Запуск проекта нажимаем жука	OK
+python manage.py migrate
+--------------
+Копируем из проекта Extra_item - url, views, model, admin
+Пробуем
+python3 manage.py makemigrations
+python3 manage.py migrate
+OK
+------------
+Создание сериализатора
+внутри нашего приложения создадим файл serializers.py
+копируем базу из проекта 5_ParameterHistory
+-----------
+Копируем DRF нужности из 5_ParameterHistory
+Оставляем пока только модель Grup
+python3 manage.py makemigrations
+python3 manage.py migrate
+------------
+Открываем Postman, добавляем название проекта Extra_item_DRF, настраиваем по проекту 4_KeyDefinder
+формируем запрос, отправляем json записи
+{
+ "name": "Dogs",
+ "slug": "dogs"
+}
+на http://127.0.0.1:8000/grups
+Проверяем появление записей в DB Brouser for SQLite  OK
+Добавляем кошек 	ОК
+-------------
+Добавляем модель Objec и сериализатор
+python3 manage.py makemigrations
+python3 manage.py migrate
+
+Консультируемся с ИИ по слагу, пост и гет запросам
+Формируем правильно классы во вьюхе, меняем сериалайзер для Objec
+В этом коде, метод to_internal_value перехватывает значение поля "grup", находит объект Grup по имени и заменяет его на его первичный ключ перед сохранением.
+---------
+Postman,
+формируем пост запросы
+{
+ "name": "Мичман",
+ "picture": "44",
+ "sound": "44",
+ "ident": "False",
+ "grup": "Dogs"
+}
+на http://127.0.0.1:8000/objecs
+
+Заполняем БД котами и собаками
+-----------------
+Прописываем для пути http://127.0.0.1:8000/grups/cats 	вьюху	советы ИИ
+Проверяем гет запросом в Постмене, все ОК
+---------------
+Прописываем для пути http://127.0.0.1:8000/grups/cats/2	вьюху	советы ИИ
+Проверяем гет запросом в Постмене, все ОК
+----------------
+
+Выкладка в гитхаб 
+Терминал 
+cd ..    в KidLogic 	
+
+git add .
+git commit -m '3 commit'
+git push -u origin main
+------------------------
+
+
+
+
+
+
+
+
+
