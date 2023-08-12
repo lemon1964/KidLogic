@@ -131,8 +131,10 @@ Postman,
 cd ..    в KidLogic 	
 
 git add .
-git commit -m '3 commit'
+git commit -m '4 commit'
 git push -u origin main
+
+https://github.com/lemon1964/KidLogic/tree/main/Extra_item_DRF
 ------------------------
 
 
