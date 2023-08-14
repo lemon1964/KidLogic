@@ -36,7 +36,7 @@ df.to_csv(csv_file, index=False)
 cd ..    в KidLogic 	
 
 git add .
-git commit -m '5 commit'
+git commit -m '6 commit'
 git push -u origin main
 -----------------
 Дальше этап согласования
