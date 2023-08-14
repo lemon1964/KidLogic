@@ -1,0 +1,4 @@
+id,image,sound,color,group,@,JSON
+0,cat1.pdf,cat1.mp3,blue,animal1,,"{'id': 0, 'image': 'cat1.pdf', 'sound': 'cat1.mp3', 'color': 'blue', 'group': 'animal1'},"
+1,cat2.pdf,cat2.mp3,green,animal1,,"{'id': 1, 'image': 'cat2.pdf', 'sound': 'cat2.mp3', 'color': 'green', 'group': 'animal1'},"
+2,dog1.pdf,dog1.mp4,blue,animal2,,"{'id': 2, 'image': 'dog1.pdf', 'sound': 'dog1.mp4', 'color': 'blue', 'group': 'animal2'},"

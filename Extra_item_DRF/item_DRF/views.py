@@ -65,19 +65,6 @@ class DetailGrup(APIView):
         return Response(serializer.data, status=status.HTTP_200_OK)
 
 
-def random_objecs(request, slug, n):
-    grup = Grup.objects.get(slug=slug)  # Получаем объект Grup по slug
-    # Получаем все объекты Objec, связанные с этой группой
-    objecs = Objec.objects.filter(grup=grup)
-    one_false = ch(list(filter(lambda x: not x.ident, objecs)))
-    many_true = sm(list(filter(lambda x: x.ident, objecs)), n - 1)
-    many_true.append(one_false)
-    sh(many_true)
-    random_objecs = sm(many_true, n)
-    serializer = ObjecSerializer(random_objecs, many=True)
-    return Response(serializer.data, status=status.HTTP_200_OK)
-
-
 class Random_objecs(APIView):
     permission_classes = [permissions.AllowAny]
     renderer_classes = [JSONRenderer]  # Используйте соответствующий рендерер
@@ -92,4 +79,13 @@ class Random_objecs(APIView):
         sh(many_true)
         random_objecs = sm(many_true, n)
         serializer = ObjecSerializer(random_objecs, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+
+class Choice_of_two(APIView):
+    permission_classes = [permissions.AllowAny]
+
+    def get(self, request):
+        objecs = Objec.objects.all()
+        serializer = ObjecSerializer(objecs, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)

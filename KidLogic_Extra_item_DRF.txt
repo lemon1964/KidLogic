@@ -137,6 +137,27 @@ git push -u origin main
 https://github.com/lemon1964/KidLogic/tree/main/Extra_item_DRF
 ------------------------
 
+Можем поделать игру «соотнеси картинки»)
+Пользователь кликает на 1 объект верхний и 1 нижний и получает ответ корректно или некорректно
+-----------------
+Реализация в этом же приложении
+
+Добавляем в класс Objec атрибут choicetwo
+choicetwo = models.BooleanField(default=True)
+
+python3 manage.py makemigrations
+python3 manage.py migrate
+
+URL
+    path("objecs/choicetwo/<int:n>", Choice_of_two.as_view(), name='choice_of_two'),
+n - кол случайных объектов из всех Objec
+
+Во вьюхе класс Choice_of_two 
+в методе get получаем объекты с choicetwo = True и их же с choicetwo = False
+в методе post сравниваем на тождество по именам и разницу по choicetwo выбранных 2 объектов
+--------------------
+
+
 
 
 

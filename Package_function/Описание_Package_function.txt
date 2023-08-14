@@ -1,0 +1,48 @@
+В папке KidLogic создаем папку Package_function
+В папку Package_function переносим заготовку файла.xlsx
+В папке Package_function создаем и активируем Вирт окружение на 10 Питоне
+python3.10 -m venv venv10
+source venv10/bin/activate
+python --version
+------------------
+
+Создаем файл first_file.py
+
+Инсталлируем библиотеки pandas и openpyxl
+pip install pandas openpyxl
+
+Из файла xlsx делаем новый файл csv в папке Package_function кодом
+
+import pandas as pd
+from openpyxl import load_workbook
+
+# Загрузка данных из файла Excel
+excel_file = "Kidwill.xlsx"
+df = pd.read_excel(excel_file)
+
+# Создание нового файла CSV
+csv_file = "Kidwill_data.csv"
+df.to_csv(csv_file, index=False)
+
+Запускаем, все работает, файл создается и перезаписывается
+------------
+На курсе Поколение Питон Профи есть задачки вроде аналоги наших, грузим их в файл Задачки_из_Py_Profi_na_csv.txt для быстрого просмотра и понимания верно ли двигаемся?
+
+Верные аналоги?
+-------------------
+Содержимое Package_function выкладываем в гитхаб в проекте KidLogic
+
+Терминал 
+cd ..    в KidLogic 	
+
+git add .
+git commit -m '5 commit'
+git push -u origin main
+-----------------
+Дальше этап согласования
+
+
+
+
+
+
